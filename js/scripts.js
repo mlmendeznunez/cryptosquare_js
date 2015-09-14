@@ -4,6 +4,18 @@ var punctuationLess = function(phrase) {
   return strippedPhrase;
 };
 
+// Insert a space every n characters
+var insertSpaces = function(n, phrase) {
+  var finalPhrase = "";
+  for (var i = 0; i < phrase.length; i++) {
+    finalPhrase += phrase[i];
+    if ((i + 1) % n == 0) {
+      finalPhrase += " ";
+    }
+  }
+  return finalPhrase;
+}
+
 // Encrypter
 var encrypt = function(phrase) {
   var strippedPhrase = punctuationLess(phrase);
@@ -16,7 +28,7 @@ var encrypt = function(phrase) {
       encryptedString += strippedPhrase[j];
     }
   }
-  return encryptedString;
+  return insertSpaces(5, encryptedString);
 };
 
 $(document).ready(function() {
