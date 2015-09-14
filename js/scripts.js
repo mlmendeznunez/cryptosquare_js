@@ -1,4 +1,4 @@
-// Encrypter
+// Main encrypter method
 var encrypt = function(phrase) {
   var strippedPhrase = punctuationLess(phrase);
   var phraseLength = strippedPhrase.length;
@@ -13,7 +13,7 @@ var encrypt = function(phrase) {
   return insertSpaces(5, encryptedString);
 };
 
-// Strip all whitespace and punctuation, and make everything lowercase
+// Helper method: strip all whitespace and punctuation, and make everything lowercase
 var punctuationLess = function(phrase) {
   var strippedPhrase = phrase.replace(/[^A-Za-z0-9-]/g,"").toLowerCase();
   return strippedPhrase;
@@ -36,7 +36,7 @@ $(document).ready(function() {
     var initialPhrase = $("input#initialPhrase").val();
     var encryptedPhrase = encrypt(initialPhrase);
 
-    // Populate data into number and factorialResult span field respectively
+    // Populate data
     $(".initialPhrase").text(initialPhrase);
     $(".encryptedPhrase").text(encryptedPhrase);
 
